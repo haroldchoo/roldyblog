@@ -3,7 +3,7 @@ title: "Why I bought a NAS"
 description: "A Plex project that began in 2022, became a dependable photo archive, and finally found its way back to the original plan."
 published: 2026-07-29
 tags:
-  - nas
+  - NAS
   - plex
   - homelab
   - self-hosting

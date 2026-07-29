@@ -1,5 +1,5 @@
 export const SITE = {
-  title: "Field Notes",
+  title: "roldy blog",
   description:
     "Practical notes from a home server, the road, and whatever I learn next.",
   author: "Harold Choo"
