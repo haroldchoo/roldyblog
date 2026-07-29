@@ -80,7 +80,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: .98; lett
 .topics-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 8vw; }
 .topics-layout > div > p:last-child { color: var(--muted); }
 .topic-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid #b9b4a8; }
-.topic-list a { display: flex; justify-content: space-between; align-items: center; padding: 1rem .4rem; border-bottom: 1px solid #b9b4a8; text-decoration: none; text-transform: capitalize; }
+.topic-list a { display: flex; justify-content: space-between; align-items: center; padding: 1rem .4rem; border-bottom: 1px solid #b9b4a8; text-decoration: none; }
 .topic-list small { font: .7rem var(--mono); }
 
 .page-intro { padding: 7rem 0 4rem; border-bottom: 1px solid var(--line); }
@@ -91,7 +91,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: .98; lett
 .archive .post-card h2 { font-size: clamp(2rem, 5vw, 3.7rem); }
 .archive .tag-list { align-content: start; justify-content: end; }
 .tag-index { display: grid; grid-template-columns: repeat(2, 1fr); list-style: none; padding: 4rem 0 7rem; gap: 1px; }
-.tag-index a { display: flex; justify-content: space-between; padding: 1.5rem; background: var(--paper-deep); text-decoration: none; text-transform: capitalize; }
+.tag-index a { display: flex; justify-content: space-between; padding: 1.5rem; background: var(--paper-deep); text-decoration: none; }
 .tag-index strong { font: .75rem var(--mono); }
 
 .post { width: min(760px, calc(100% - 40px)); padding: 7rem 0; }
