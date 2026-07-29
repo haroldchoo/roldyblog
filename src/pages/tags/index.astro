@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { tagSlug, withBase } from "../../lib/site";
+
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const counts = new Map<string, number>();
+posts.flatMap((post) => post.data.tags).forEach((tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1));
+const tags = [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+---
+
+<BaseLayout title="Topics" description="Browse field notes by topic.">
+  <section class="page-intro shell">
+    <p class="eyebrow">Browse by curiosity</p>
+    <h1>Topics</h1>
+    <p>A growing index of projects, tools, rides, and questions.</p>
+  </section>
+  <ul class="tag-index shell">
+    {tags.map(([tag, count]) => (
+      <li><a href={withBase(`/tags/${tagSlug(tag)}/`)}><span>{tag}</span><strong>{count}</strong></a></li>
+    ))}
+  </ul>
+</BaseLayout>

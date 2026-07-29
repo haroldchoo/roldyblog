@@ -1,0 +1,84 @@
+---
+import "../styles/global.css";
+import { SITE, withBase } from "../lib/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = withBase("/og.svg")
+} = Astro.props;
+const pageTitle = title ? `${title} · ${SITE.title}` : SITE.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f3efe5" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={withBase("/rss.xml")} />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href={withBase("/")}>
+        <span class="wordmark-mark" aria-hidden="true">FN</span>
+        <span>{SITE.title}</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href={withBase("/posts/")}>Writing</a>
+        <a href={withBase("/tags/")}>Topics</a>
+        <a href={withBase("/about/")}>About</a>
+        <a href={withBase("/rss.xml")}>RSS</a>
+      </nav>
+    </header>
+    <main id="content">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>Notes made carefully, revised when reality disagrees.</p>
+      <p>Email updates may arrive later, if this little corner gets busy.</p>
+      <p>© {new Date().getFullYear()} {SITE.author}</p>
+    </footer>
+    <script>
+      const renderMermaid = async () => {
+        const blocks = [...document.querySelectorAll("pre code.language-mermaid")];
+        if (!blocks.length) return;
+        const { default: mermaid } = await import("mermaid");
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: "neutral",
+          securityLevel: "strict",
+          fontFamily: "Inter, ui-sans-serif, system-ui"
+        });
+        blocks.forEach((code) => {
+          const container = document.createElement("div");
+          container.className = "mermaid";
+          container.textContent = code.textContent ?? "";
+          code.parentElement?.replaceWith(container);
+        });
+        await mermaid.run();
+      };
+      renderMermaid();
+    </script>
+  </body>
+</html>

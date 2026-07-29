@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f3efe5"/>
+  <circle cx="105" cy="98" r="38" fill="#173f32"/>
+  <text x="105" y="106" text-anchor="middle" font-family="monospace" font-size="21" fill="#c9f269">FN</text>
+  <text x="165" y="110" font-family="Arial, sans-serif" font-weight="600" font-size="27" fill="#1e2924">FIELD NOTES</text>
+  <text x="78" y="286" font-family="Georgia, serif" font-weight="600" font-size="82" fill="#1e2924">Build it. Ride it.</text>
+  <text x="78" y="382" font-family="Georgia, serif" font-weight="600" font-size="82" fill="#1e2924">Write down what worked.</text>
+  <line x1="78" x2="1122" y1="515" y2="515" stroke="#cbc6b9"/>
+  <text x="78" y="561" font-family="monospace" font-size="18" fill="#667069">HOME SERVER · TECHNOLOGY · CYCLING</text>
+</svg>

@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+import { tagSlug } from "../../lib/site";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+  return tags.map((tag) => ({
+    params: { tag: tagSlug(tag) },
+    props: { tag, posts: posts.filter((post) => post.data.tags.includes(tag)) }
+  }));
+}
+
+const { tag, posts } = Astro.props;
+posts.sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+
+<BaseLayout title={`#${tag}`} description={`Field notes about ${tag}.`}>
+  <section class="page-intro shell">
+    <p class="eyebrow">Topic</p>
+    <h1>#{tag}</h1>
+    <p>{posts.length} {posts.length === 1 ? "entry" : "entries"} filed here.</p>
+  </section>
+  <section class="archive shell">
+    {posts.map((post) => <PostCard post={post} />)}
+  </section>
+</BaseLayout>

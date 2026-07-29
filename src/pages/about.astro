@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/site";
+---
+
+<BaseLayout title="About" description="Why Field Notes exists.">
+  <article class="about shell">
+    <div>
+      <p class="eyebrow">About this journal</p>
+      <h1>Useful details are worth keeping.</h1>
+    </div>
+    <div class="prose">
+      <p class="lead">
+        Field Notes is a personal record of projects I want to understand—not
+        just finish.
+      </p>
+      <p>
+        It begins with a small Intel NUC server: choosing the hardware, making
+        services reliable, learning from mistakes, and documenting enough detail
+        to make the next rebuild easier.
+      </p>
+      <p>
+        Over time, the same habit will extend to other interests, including
+        cycling, race analysis, and whatever else rewards a closer look.
+      </p>
+      <h2>How posts are written</h2>
+      <p>
+        Expect commands that can be copied, diagrams that explain the shape of
+        a system, and updates when an earlier conclusion turns out to be wrong.
+        Posts are Markdown files kept alongside the site, so the archive remains
+        portable.
+      </p>
+      <p><a href={withBase("/posts/")}>Start with the latest notes →</a></p>
+    </div>
+  </article>
+</BaseLayout>

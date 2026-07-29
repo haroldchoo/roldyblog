@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/site";
+---
+
+<BaseLayout title="Not found">
+  <section class="not-found shell">
+    <p class="error-code">404</p>
+    <p class="eyebrow">Nothing filed here</p>
+    <h1>This path went nowhere.</h1>
+    <p>The link may be old, or the note may have moved.</p>
+    <a class="button" href={withBase("/")}>Return home</a>
+  </section>
+</BaseLayout>
