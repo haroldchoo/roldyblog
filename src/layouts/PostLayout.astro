@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
+import Comments from "../components/Comments.astro";
 import { formatDate, tagSlug, withBase } from "../lib/site";
 
 interface Props {
@@ -32,5 +33,6 @@ const { title, description, published, updated, tags } = post.data;
       <p>That’s the state of it for now. I’ll update this note if the setup changes.</p>
       <a href={withBase("/posts/")}>← All writing</a>
     </footer>
+    <Comments />
   </article>
 </BaseLayout>
