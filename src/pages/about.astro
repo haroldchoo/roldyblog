@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { withBase } from "../lib/site";
 ---
 
-<BaseLayout title="About" description="Why Field Notes exists.">
+<BaseLayout title="About" description="Why roldyblog exists.">
   <article class="about shell">
     <div>
       <p class="eyebrow">About this journal</p>
@@ -11,24 +11,17 @@ import { withBase } from "../lib/site";
     </div>
     <div class="prose">
       <p class="lead">
-        Field Notes is a personal record of projects I want to understand—not
-        just finish.
+        roldyblog is a personal record of the projects I am working on and a
+        place to share the journey.
       </p>
       <p>
-        It begins with a small Intel NUC server: choosing the hardware, making
-        services reliable, learning from mistakes, and documenting enough detail
-        to make the next rebuild easier.
+        It began with a Synology NAS, evolved with a NUC head, and now focuses
+        on making services reliable, learning from mistakes, and documenting
+        enough detail for others to follow.
       </p>
       <p>
-        Over time, the same habit will extend to other interests, including
+        Over time, the blog will extend to my other interests, including
         cycling, race analysis, and whatever else rewards a closer look.
-      </p>
-      <h2>How posts are written</h2>
-      <p>
-        Expect commands that can be copied, diagrams that explain the shape of
-        a system, and updates when an earlier conclusion turns out to be wrong.
-        Posts are Markdown files kept alongside the site, so the archive remains
-        portable.
       </p>
       <p><a href={withBase("/posts/")}>Start with the latest notes →</a></p>
     </div>
