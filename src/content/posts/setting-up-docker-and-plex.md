@@ -56,6 +56,7 @@ This SOP assumes:
 - The NAS SMB share is already mounted at `/mnt/nas-media`.
 - The Ubuntu user can read the media directories.
 - SSH key authentication works from the computer running Codex.
+- Tailscale is connected on both the NUC and the computer running Codex.
 
 I first confirmed the remote connection myself:
 
@@ -63,14 +64,21 @@ I first confirmed the remote connection myself:
 ssh nuc
 ```
 
-`nuc` is the host alias in my local `~/.ssh/config`. A minimal entry looks like:
+`nuc` is the host alias in my local `~/.ssh/config`. The `HostName` is the
+**Tailscale IP assigned to the NUC**, not its regular address on my home LAN. A
+minimal entry looks like:
 
 ```text
 Host nuc
-  HostName NUC_IP_ADDRESS
+  HostName NUC_TAILSCALE_IP
   User YOUR_USER
   IdentityFile ~/.ssh/id_ed25519
 ```
+
+I found that address on the NUC with `tailscale ip -4`. Using the Tailscale IP
+means the SSH connection travels through my tailnet and the same alias works
+whether my computer is at home or somewhere else. I did not open port 22 or add
+an SSH port-forwarding rule on the home router.
 
 I used a normal user with `sudo` access and key authentication. I did not put a
 password or private key in the prompt. Codex used the SSH configuration and
