@@ -55,9 +55,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: .98; lett
 .button { display: inline-flex; padding: .8rem 1.15rem; background: var(--green); color: white; text-decoration: none; border-radius: 2px; font-size: .9rem; }
 .button:hover { background: #245843; color: white; }
 .text-link { font-size: .9rem; font-weight: 600; text-decoration: none; }
-.status-strip { border-block: 1px solid var(--line); display: grid; grid-template-columns: 1fr 2fr auto; gap: 2rem; padding: 1.15rem 0; font: .75rem var(--mono); text-transform: uppercase; letter-spacing: .08em; }
-.status-strip strong { font-weight: 500; }
-.status-dot::before { content: ""; width: 8px; height: 8px; display: inline-block; border-radius: 50%; background: #53a26e; margin-right: .5rem; }
 
 .section { padding: 6rem 0; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem; }
@@ -146,8 +143,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: .98; lett
   nav { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem 1.2rem; }
   .hero { padding-top: 4rem; }
   .hero h1 { font-size: clamp(3.2rem, 15vw, 5rem); }
-  .status-strip { grid-template-columns: 1fr auto; }
-  .status-strip strong { grid-column: 1 / -1; grid-row: 2; }
   .post-grid, .topics-layout, .about { grid-template-columns: 1fr; }
   .section-heading { align-items: start; gap: 1.5rem; }
   .section-note { max-width: 180px; }
