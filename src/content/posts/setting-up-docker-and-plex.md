@@ -29,7 +29,7 @@ This post records the same process as a repeatable SOP.
 ```mermaid
 flowchart LR
   Me -->|Prompt and approvals| Codex
-  Codex -->|SSH| NUC[Ubuntu NUC]
+  Codex -->|SSH to Tailscale IP| NUC[Ubuntu NUC]
   NUC --> Docker
   Docker --> Plex
   Plex -->|Read media| NASMount[NAS mounted at /mnt/nas-media]
