@@ -10,6 +10,28 @@ const recent = posts.slice(0, 3);
 const tagCounts = new Map<string, number>();
 posts.flatMap((post) => post.data.tags).forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1));
 const topics = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+const projects = [
+  {
+    name: "Plex",
+    role: "Media server",
+    description: "The center of the home library, serving movies and shows across the house.",
+  },
+  {
+    name: "Radarr",
+    role: "Movie management",
+    description: "Keeps the movie collection organized and connected to the rest of the media stack.",
+  },
+  {
+    name: "Sonarr",
+    role: "Series management",
+    description: "Tracks television series and handles the routine work behind keeping episodes in order.",
+  },
+  {
+    name: "Immich",
+    role: "Photo library",
+    description: "A self-hosted home for backing up, browsing, and sharing the family photo collection.",
+  },
+];
 ---
 
 <BaseLayout>
@@ -17,8 +39,7 @@ const topics = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
     <p class="eyebrow">A practical journal</p>
     <h1>Build it. Ride it.<br />Write down what worked.</h1>
     <p class="hero-copy">
-      roldyblog follows the experience of running a small home server,
-      untangling technology, and finding patterns in my cardio exercises.
+      roldyblog follows the experience of setting up a home lab, and documenting my interests.
     </p>
     <div class="hero-actions">
       <a class="button" href={withBase("/posts/")}>Read the notes</a>
@@ -29,6 +50,31 @@ const topics = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
       <strong>Plex Server</strong>
       <span class="status-dot">Online</span>
     </aside>
+  </section>
+
+  <section class="projects-section">
+    <div class="section shell">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Running at home</p>
+          <h2>Projects</h2>
+        </div>
+        <p class="section-note">The services that make up the home server.</p>
+      </div>
+      <div class="project-grid">
+        {projects.map((project, index) => (
+          <article class="project-card">
+            <div class="project-number">{(index + 1).toString().padStart(2, "0")}</div>
+            <div>
+              <p class="project-role">{project.role}</p>
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+            </div>
+            <span class="project-status">Online</span>
+          </article>
+        ))}
+      </div>
+    </div>
   </section>
 
   <section class="section shell">

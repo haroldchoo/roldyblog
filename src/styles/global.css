@@ -63,6 +63,20 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: .98; lett
 .section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 2rem; }
 .section-heading h2, .topics-layout h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin: 0; }
 .section-heading > a { font-size: .85rem; text-decoration: none; }
+.section-note { max-width: 300px; margin: 0; color: var(--muted); font-size: .9rem; text-align: right; }
+.projects-section { background: var(--green); color: var(--white); }
+.projects-section .eyebrow { color: var(--lime); }
+.projects-section .section { padding-block: 5rem; }
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #557066; border-left: 1px solid #557066; }
+.project-card { position: relative; min-height: 280px; padding: 1.6rem; display: grid; grid-template-columns: auto 1fr; gap: 2rem; border-right: 1px solid #557066; border-bottom: 1px solid #557066; }
+.project-number, .project-role, .project-status { font: .68rem var(--mono); text-transform: uppercase; letter-spacing: .1em; }
+.project-number, .project-role { color: #a5b6ad; }
+.project-role { margin: .15rem 0 1.4rem; }
+.project-card h3 { font-size: clamp(2.3rem, 4vw, 3.5rem); margin-bottom: 1rem; }
+.project-card > div:nth-child(2) > p:last-child { max-width: 40ch; margin: 0; color: #cad4ce; font-size: .92rem; }
+.project-status { position: absolute; right: 1.6rem; bottom: 1.6rem; color: var(--lime); }
+.project-status::before { content: ""; width: 7px; height: 7px; display: inline-block; margin-right: .45rem; border-radius: 50%; background: currentColor; }
+.projects-section .section-note { color: #a5b6ad; }
 .post-grid { display: grid; grid-template-columns: 1.5fr 1fr; }
 .post-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; padding: 2rem; border-top: 1px solid var(--line); }
 .post-card:nth-child(even) { border-left: 1px solid var(--line); }
@@ -135,6 +149,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: .98; lett
   .status-strip { grid-template-columns: 1fr auto; }
   .status-strip strong { grid-column: 1 / -1; grid-row: 2; }
   .post-grid, .topics-layout, .about { grid-template-columns: 1fr; }
+  .section-heading { align-items: start; gap: 1.5rem; }
+  .section-note { max-width: 180px; }
+  .project-grid { grid-template-columns: 1fr; }
+  .project-card { min-height: 250px; }
   .post-card.featured { min-height: 440px; }
   .post-card:nth-child(even) { border-left: 0; }
   .archive .post-card { grid-template-columns: 1fr; }
